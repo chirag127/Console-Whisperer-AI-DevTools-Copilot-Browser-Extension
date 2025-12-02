@@ -1,0 +1,70 @@
+project: Console-Whisperer-AI-DevTools-Copilot-Browser-Extension
+owner: chirag127
+style: flat-square
+repo_url: https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension
+
+badges:
+  - name: Build Status
+    type: ci
+    subject: CI Build
+    status: passing
+    color: success
+    link: $(repo_url)/actions/workflows/ci.yml
+    image_url: $(repo_url)/actions/workflows/ci.yml/badge.svg
+    markdown: "[![CI Build Status](https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension/actions/workflows/ci.yml/badge.svg)](https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension/actions/workflows/ci.yml)"
+
+  - name: Code Coverage
+    type: coverage
+    link: https://codecov.io/gh/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension
+    image_url: https://codecov.io/gh/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension/branch/main/graph/badge.svg?style=flat-square
+    markdown: "[![Code Coverage](https://codecov.io/gh/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension/branch/main/graph/badge.svg?style=flat-square)](https://codecov.io/gh/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension)"
+
+  - name: Latest Release
+    type: version
+    link: $(repo_url)/releases
+    image_url: https://img.shields.io/github/v/release/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension.svg?style=flat-square&sort=semver
+    markdown: "[![Latest Release](https://img.shields.io/github/v/release/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension.svg?style=flat-square&sort=semver)](https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension/releases)"
+
+  - name: License
+    type: license
+    subject: License
+    status: CC BY-NC 4.0
+    color: blue
+    link: $(repo_url)/blob/main/LICENSE
+    image_url: https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue?style=flat-square
+    markdown: "[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue?style=flat-square)](https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension/blob/main/LICENSE)"
+
+  - name: Tech Stack - Extension
+    type: technology
+    subject: Extension
+    status: WXT / Vite
+    color: 8A2BE2
+    link: https://wxt.dev/
+    image_url: https://img.shields.io/badge/Extension-WXT%20/%20Vite-8A2BE2?style=flat-square
+    markdown: "[![Extension: WXT / Vite](https://img.shields.io/badge/Extension-WXT%20/%20Vite-8A2BE2?style=flat-square)](https://wxt.dev/)"
+
+  - name: Tech Stack - Language
+    type: technology
+    subject: Language
+    status: TypeScript
+    color: 3178C6
+    link: https://www.typescriptlang.org/
+    image_url: https://img.shields.io/badge/Language-TypeScript-3178C6?style=flat-square
+    markdown: "[![Language: TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=flat-square)](https://www.typescriptlang.org/)"
+
+  - name: Linter & Formatter
+    type: quality
+    subject: Linter
+    status: Biome
+    color: 0377E5
+    link: https://biomejs.dev/
+    image_url: https://img.shields.io/badge/Linter-Biome-0377E5?style=flat-square
+    markdown: "[![Linter: Biome](https://img.shields.io/badge/Linter-Biome-0377E5?style=flat-square)](https://biomejs.dev/)"
+
+  - name: GitHub Stars
+    type: social
+    subject: Stars
+    color: FFAC33
+    link: $(repo_url)
+    image_url: https://img.shields.io/github/stars/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension.svg?style=flat-square&color=FFAC33
+    markdown: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension.svg?style=flat-square&color=FFAC33)](https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension)"
