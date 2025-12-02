@@ -1,70 +1,75 @@
-```markdown
-## Pull Request
-
-Thank you for contributing to Console Whisperer!
-
-Please provide a clear and concise description of your changes.
-
-### PR Checklist:
-
-- [ ] **1. Description of Changes:**
-  -   A clear and concise summary of the changes.
-  -   Why is this change necessary? What problem does it solve?
-  -   Link to any related issues or pull requests.
-
-- [ ] **2. Code Quality & Testing:**
-  -   [ ] I have followed the project's code style guidelines.
-  -   [ ] My code has no linting errors (run `biome check`).
-  -   [ ] My code includes comprehensive unit tests (run `vitest`).
-  -   [ ] All tests pass.
-  -   [ ] I have considered edge cases and error handling.
-
-- [ ] **3. Documentation:**
-  -   [ ] I have updated the documentation (README, etc.) if necessary.
-  -   [ ] All new functions/classes are documented.
-
-- [ ] **4. Security:**
-  -   [ ] I have considered security implications and followed secure coding practices.
-  -   [ ] No sensitive information is included in the commit.
-
-- [ ] **5. Dependencies:**
-  -   [ ] If this PR introduces new dependencies, I have listed them in the PR description.
-  -   [ ] Dependencies are up-to-date.
-
-### Additional Information:
-
--   Any specific instructions for reviewers?
--   Screenshots or videos (if applicable).
-
-### Reviewers:
-
--   Please assign reviewers and/or relevant team members.
-
+---
+name: Pull Request
+about: Propose changes for Console-Whisperer-AI-DevTools-Copilot-Browser-Extension
+title: '[Type]: A concise summary of the change'
+labels: ''
+assignees: ''
 ---
 
-## AI Agent Directives (For Automated Analysis)
+## 📝 Pull Request Description
 
-<details>
-<summary>Click to Expand</summary>
+Please provide a clear and concise description of the changes introduced in this pull request. Explain the problem it solves, the feature it adds, or the improvement it brings to the `Console-Whisperer-AI-DevTools-Copilot-Browser-Extension`.
 
-**Tech Stack:**
+## 🚀 Type of Change
 
-*   **Frontend:** TypeScript 6.x, Vite 7, WXT, Signals
-*   **Linting:** Biome
-*   **Testing:** Vitest (Unit), Playwright (E2E)
-*   **Build/Bundling:** Vite
+- [ ] **Feature:** New functionality or enhancement.
+- [ ] **Bug Fix:** Correction of an existing issue.
+- [ ] **Refactor:** Code restructuring without changing external behavior.
+- [ ] **Documentation:** Updates to README, comments, or other documentation.
+- [ ] **Chore:** Routine tasks, dependency updates, build process changes, etc.
 
-**Architectural Patterns:**
+## 🔗 Related Issues (Optional)
 
-*   Feature-Sliced Design (FSD)
-*   SOLID principles (SRP, OCP, LSP, ISP, DIP).
-*   CQS (Command Query Separation).
+Link any related GitHub issues here. Use keywords like `Closes #IssueNumber`, `Fixes #IssueNumber`, or `Resolves #IssueNumber` to automatically close issues when the PR is merged.
 
-**Verification Commands:**
+- Closes #
 
-*   `biome check --apply .` (Format & Lint)
-*   `vitest` (Run Unit Tests)
-*   `playwright test` (Run E2E Tests)
-*   `npm run build` (Build Production)
+## ✨ Changes Made
 
-</details>
+Provide a detailed list or summary of the specific changes implemented. Be as descriptive as possible.
+
+- Implemented X to achieve Y.
+- Modified Z to address W.
+- Updated dependencies for A.
+
+## 🧪 How Has This Been Tested?
+
+Describe the tests that you ran to verify your changes. Provide instructions so we can reproduce.
+
+**Example:**
+
+1.  **Unit Tests:** All existing unit tests pass (`npm test`).
+2.  **Integration Tests:** Ran `npm run test:e2e` and verified user flow for [specific feature].
+3.  **Manual Testing (Browser Extension):**
+    *   Installed the extension locally.
+    *   Opened DevTools on a sample page.
+    *   Verified AI Copilot suggestions for console errors.
+    *   Confirmed performance metrics are stable.
+
+*(Please include screenshots or GIFs for UI changes if applicable.)*
+
+## ✅ Checklist
+
+Before submitting your pull request, please ensure the following:
+
+- [ ] My code follows the project's coding style and guidelines.
+- [ ] I have performed a self-review of my own code.
+- [ ] I have commented my code, particularly in hard-to-understand areas.
+- [ ] I have made corresponding changes to the documentation.
+- [ ] My changes generate no new warnings.
+- [ ] I have added tests that prove my fix is effective or that my feature works.
+- [ ] New and existing unit tests pass locally with my changes.
+- [ ] Any dependent changes have been merged and published in downstream modules.
+
+## 📢 Code Reviewer Guidelines
+
+When reviewing this PR, please consider the following:
+
+-   **Clarity:** Is the code easy to understand?
+-   **Correctness:** Does it work as intended and solve the problem?
+-   **Maintainability:** Is it clean, modular, and adheres to architectural patterns (e.g., Feature-Sliced Design)?
+-   **Performance:** Are there any obvious performance bottlenecks?
+-   **Security:** Are there any potential security vulnerabilities?
+-   **Test Coverage:** Are the changes adequately tested?
+
+Thank you for contributing to `Console-Whisperer-AI-DevTools-Copilot-Browser-Extension`!
