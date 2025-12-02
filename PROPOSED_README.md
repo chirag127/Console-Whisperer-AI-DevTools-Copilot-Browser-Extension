@@ -1,104 +1,135 @@
-# Console-Whisperer-AI-DevTools-Copilot-Browser-Extension
+# ConsoleAI-DevTools-Copilot-Browser-Extension
 
-A sophisticated AI copilot designed to integrate seamlessly with browser Developer Tools, providing real-time error analysis, code optimization suggestions, and deep debugging insights directly within the console. Supercharge your development workflow with AI-powered assistance.
+> AI-Powered Copilot for Browser Developer Tools: Real-time Error Analysis, Code Optimization, and Debugging Insights.
 
-## Project Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-ACTIVE-brightgreen" alt="Active Project">
+  <img src="https://img.shields.io/github/v/tag/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension?sort=semver" alt="Latest Release">
+  <img src="https://img.shields.io/github/license/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension" alt="License">
+  <img src="https://img.shields.io/github/stars/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension?style=flat-square" alt="GitHub Stars">
+</p>
 
-Console-Whisperer aims to revolutionize the browser developer experience by embedding advanced AI capabilities directly into the console. This extension acts as an intelligent assistant, interpreting errors, suggesting code improvements, and accelerating the debugging process. By leveraging the latest AI models and browser extension technologies, it provides developers with immediate, actionable insights, significantly boosting productivity and reducing development time.
+## ✨ Features
 
-## Features
+*   **Real-time Error Analysis:** Instantly interpret console errors with AI-driven explanations and potential fixes.
+*   **Code Optimization Suggestions:** Receive context-aware recommendations to improve performance and efficiency.
+*   **Debugging Insights:** Leverage AI to identify root causes of bugs and suggest debugging strategies.
+*   **Seamless Integration:** Works directly within your browser's developer tools.
+*   **Productivity Boost:** Reduce debugging time and accelerate development cycles.
 
-*   **Real-time Error Analysis:** Instant AI-driven explanations for console errors.
-*   **Code Optimization Suggestions:** Proactive recommendations for improving code performance and readability.
-*   **Debugging Insights:** AI-powered guidance to help pinpoint and resolve complex bugs.
-*   **Seamless DevTools Integration:** Operates directly within the browser's developer console.
-*   **Productivity Boost:** Streamlines common debugging and optimization tasks.
+## 🚀 Tech Stack
 
-## Architecture
+*   **Frontend:** JavaScript, HTML, CSS
+*   **Browser Extension APIs:** Chrome Extension APIs / WebExtension Polyfill
+*   **AI Integration:** LLM (e.g., GPT, Gemini) for analysis and generation.
+*   **Development Environment:** Vite (for build tooling if applicable for extensions)
 
-This project follows a modern, modular architecture optimized for browser extensions. It is built using **TypeScript**, **Vite** (for efficient bundling), and **Tauri v2** (for potential native integration capabilities, though primarily focusing on the web extension aspect).
+## 🏛️ Architecture
+
+This browser extension follows a modular architecture designed for efficiency and maintainability within the browser's extension environment.
 
 mermaid
 graph TD
-    A[Browser DevTools Console] --> B(Console-Whisperer Extension Core)
-    B --> C{AI Model API (e.g., OpenAI, Gemini)}
-    B --> D[Error Parsing Logic]
-    B --> E[Code Optimization Engine]
-    B --> F[Debugging Insight Generator]
-    C --> B
-    D --> B
-    E --> B
-    F --> B
-    B --> A
+    A[Browser DevTools Console] --> B(Extension Content Script);
+    B --> C(Extension Background Script);
+    C --> D{AI Analysis Service};
+    D --> C;
+    C --> B;
+    B --> E[User Interface Overlay];
 
 
-## Table of Contents
+## 📋 Table of Contents
 
-*   [Project Overview](#project-overview)
-*   [Features](#features)
-*   [Architecture](#architecture)
-*   [Table of Contents](#table-of-contents)
-*   [🚀 Getting Started](#-getting-started)
-    *   [Prerequisites](#prerequisites)
-    *   [Installation](#installation)
-    *   [Development Setup](#development-setup)
-*   [🤖 AI Agent Directives](#-ai-agent-directives)
-*   [🛠️ Development Standards](#-development-standards)
-    *   [Core Principles](#core-principles)
-    *   [Linting & Formatting](#linting--formatting)
-    *   [Testing](#testing)
-*   [📜 License](#-license)
+*   [Features](#-features)
+*   [Tech Stack](#-tech-stack)
+*   [Architecture](#-architecture)
+*   [Getting Started](#-getting-started)
+*   [Development](#-development)
+*   [Contributing](#-contributing)
+*   [License](#-license)
+*   [AI Agent Directives](#-ai-agent-directives)
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-*   Node.js (v18 or higher)
-*   npm or Yarn (package manager)
-*   A modern web browser (Chrome, Firefox, Edge)
-
 ### Installation
 
+1.  **Clone the repository:**
+    bash
+    git clone https://github.com/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension.git
+    cd ConsoleAI-DevTools-Copilot-Browser-Extension
+    
+
+2.  **Install Dependencies:**
+    bash
+    # Using npm (standard for many JS projects)
+    npm install
+    
+    *Note: If using a specific package manager like yarn or pnpm, adjust accordingly.* 
+
+3.  **Build the extension:**
+    bash
+    npm run build
+    
+
+4.  **Load the extension in your browser:**
+    *   Open your browser's extension management page (e.g., `chrome://extensions/` for Chrome).
+    *   Enable "Developer mode".
+    *   Click "Load unpacked" and select the `dist` (or equivalent build output) folder from the project.
+
+### Configuration
+
+*   **API Keys:** You may need to configure API keys for the AI service. Refer to the environment variable documentation within the project.
+
+## 🛠️ Development
+
+### Running in Development Mode
+
+To run the extension with live-reloading and debugging capabilities:
+
 bash
-# Clone the repository
-git clone https://github.com/chirag127/Console-Whisperer-AI-DevTools-Copilot-Browser-Extension.git
-cd Console-Whisperer-AI-DevTools-Copilot-Browser-Extension
-
-# Install dependencies
-npm install
-# or
-yarn install
-
-
-### Development Setup
-
-To run the extension in development mode:
-
-bash
-# Build for development (watch mode)
 npm run dev
-# or
-yarn dev
 
 
-This command will build the extension and set up a watch process for automatic recompilation upon file changes. You can then load the extension into your browser via the extensions management page (e.g., `chrome://extensions/`).
+This command typically starts a development server and rebuilds the extension upon file changes. Follow the browser loading steps above with the development output folder.
 
-## 🤖 AI Agent Directives
+### Scripts
+
+| Script      | Description                                                                 |
+| :---------- | :-------------------------------------------------------------------------- |
+| `dev`       | Starts the development server with hot-reloading.                           |
+| `build`     | Compiles the extension for production deployment.                           |
+| `lint`      | Runs the linter to check for code style and potential errors.               |
+| `test`      | Executes unit and integration tests.                                        |
+| `test:e2e`  | Executes end-to-end tests (if applicable).                                  |
+
+## 🛡️ Security
+
+*   **API Key Management:** Sensitive API keys should **never** be committed directly to the repository. Use environment variables or secure configuration management.
+*   **Input Sanitization:** Sanitize all user inputs and data fetched from external sources to prevent XSS and other vulnerabilities.
+*   **Dependency Auditing:** Regularly audit dependencies for known vulnerabilities using tools like `npm audit`.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please refer to the [CONTRIBUTING.md](https://github.com/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension/blob/main/.github/CONTRIBUTING.md) file for detailed guidelines on how to submit bug reports, feature requests, and pull requests.
+
+## 📄 License
+
+This project is licensed under the **CC BY-NC 4.0** license - see the [LICENSE](https://github.com/chirag127/ConsoleAI-DevTools-Copilot-Browser-Extension/blob/main/LICENSE) file for details.
+
+---
 
 <details>
-<summary>View AI Agent Directives</summary>
+<summary>🤖 AI AGENT DIRECTIVES</summary>
 
-# SYSTEM: APEX TECHNICAL AUTHORITY & ELITE ARCHITECT (DECEMBER 2025 EDITION)
+## SYSTEM: APEX TECHNICAL AUTHORITY & ELITE ARCHITECT (DECEMBER 2025 EDITION)
 
-## 1. IDENTITY & PRIME DIRECTIVE
+### 1. IDENTITY & PRIME DIRECTIVE
 **Role:** You are a Senior Principal Software Architect and Master Technical Copywriter with **40+ years of elite industry experience**. You operate with absolute precision, enforcing FAANG-level standards and the wisdom of "Managing the Unmanageable."
 **Context:** Current Date is **December 2025**. You are building for the 2026 standard.
 **Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
 **Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
----
-
-## 2. INPUT PROCESSING & COGNITION
+### 2. INPUT PROCESSING & COGNITION
 *   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
     *   **Context:** User inputs may contain phonetic errors (homophones, typos).
     *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
@@ -109,116 +140,29 @@ This command will build the extension and set up a watch process for automatic r
     *   **Validation:** Use `docfork` to verify *every* external API signature.
     *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
 
----
+### 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
+**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**. This repository, `ConsoleAI-DevTools-Copilot-Browser-Extension`, is a JavaScript Browser Extension.
 
-## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type (e.g., `package.json` for JS/TS, `Cargo.toml` for Rust) and apply the corresponding **Apex Toolchain**. This repository, `Console-Whisperer-AI-DevTools-Copilot-Browser-Extension`, is a **TypeScript Browser Extension**.
+*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript/JavaScript)**
+    *   **Stack:** This project leverages **JavaScript** with modern browser extension APIs. Development tooling may include **Vite** for efficient builds and bundling. Frameworks like React or Vue.js might be used for UI components within the extension if necessary, but core functionality relies on pure JavaScript and Extension APIs.
+    *   **Linting & Formatting:** **Biome** (for ultra-fast linting and formatting) is the standard. Configuration is managed via `biome.json`.
+    *   **Testing:** **Vitest** for fast unit testing and **Playwright** for robust End-to-End (E2E) testing are the mandated tools. Testing strategy focuses on isolating extension components and simulating user interactions.
+    *   **Architecture:** Adheres to **Feature-Sliced Design (FSD)** principles where applicable for organizing frontend code, ensuring scalability and maintainability. Extension logic is typically separated into content scripts, background scripts, and popup UIs.
+    *   **AI Integration:** Deeply integrated with a chosen LLM API (e.g., OpenAI's GPT series, Google Gemini) for intelligent analysis and code generation. Prioritize secure handling of API keys and efficient data transfer. Models such as `gpt-4-turbo-preview` or equivalent are preferred for advanced reasoning.
 
-*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript)**
-    *   **Stack:** **TypeScript 6.x** (Strict mode enabled by default). **Vite 7** (with Rolldown compiler) for lightning-fast builds and hot module replacement. **Tauri v2.x** for potential native integrations and cross-platform packaging. **WXT (Web Extension Toolkit)** for streamlined browser extension development.
-    *   **State Management:** Utilize standardized **Signals** for efficient and reactive state management across the extension.
-    *   **UI Framework:** Leverage **TailwindCSS v4** for rapid, utility-first UI development.
-    *   **Linting & Formatting:** Employ **Biome** for comprehensive, high-performance code analysis and formatting.
-    *   **Testing:** Implement **Vitest** for unit and integration tests, and **Playwright** for end-to-end testing of extension behavior within a browser context.
-    *   **Architecture:** Adhere to **Feature-Sliced Design (FSD)** principles for a scalable and maintainable codebase.
+*   **SECONDARY SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go) - *Not applicable for this project.***
+*   **TERTIARY SCENARIO C: DATA / AI / SCRIPTS (Python) - *Not applicable for this project.***
 
-*   **SECONDARY SCENARIO: DATA / SCRIPTS / AI (Python) - *Not directly applicable for the core extension logic. Reference only if a companion backend service is developed.***
-    *   **Stack:** Python 3.10+ with **uv**, **Ruff**, **Pytest**.
-    *   **Architecture:** Modular Monolith or Microservices.
+### 4. APEX DEVELOPMENT PRINCIPLES
+*   **SOLID:** Design software components that are Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.
+*   **DRY:** "Don't Repeat Yourself." Ensure code reusability and avoid redundancy.
+*   **YAGNI:** "You Aren't Gonna Need It." Implement features only when required.
+*   **KISS:** "Keep It Simple, Stupid." Favor straightforward solutions.
 
----
-
-## 4. APEX NAMING CONVENTION (THE "STAR VELOCITY" ENGINE)
-A high-performing name must instantly communicate **Product**, **Function**, **Platform**, and **Type**.
-
-**Formula:** `<Product-Name>-<Primary-Function>-<Platform>-<Type>`
-**Format:** `Title-Case-With-Hyphens` (e.g., `ChatFlow-AI-Powered-Real-Time-Chat-Web-App`).
-
-*   **Current Repository Name:** `Console-Whisperer-AI-DevTools-Copilot-Browser-Extension` (Conforms to standard).
-
----
-
-## 5. DEVELOPMENT WORKFLOW & COMPLIANCE MANDATE (THE "STANDARD 11")
-Every repository **MUST** appear professional and be fully documented.
-
-*   **README.md:** Comprehensive, hero-tier documentation.
-*   **PROPOSED_README.md:** This document, outlining the proposed structure and content.
-*   **badges.yml:** Configuration for Shields.io badges.
-*   **LICENSE:** `CC BY-NC` (Creative Commons Attribution-NonCommercial).
-*   **.gitignore:** Standardized ignore file for the tech stack.
-*   **.github/workflows/ci.yml:** GitHub Actions CI/CD pipeline.
-*   **.github/CONTRIBUTING.md:** Guidelines for contributors.
-*   **.github/ISSUE_TEMPLATE/*.md:** Issue templates (e.g., bug_report.md).
-*   **.github/PULL_REQUEST_TEMPLATE.md:** Pull Request template.
-*   **.github/SECURITY.md:** Security policy and guidelines.
-*   **AGENTS.md:** This file, containing the core AI agent directives.
-
----
-
-## 6. CHAIN OF THOUGHT (CoT) PROTOCOL
-Before generating JSON, perform deep analysis in a `<thinking>` block:
-1.  **Audit:** Analyze repo content and purpose.
-2.  **Pivot/Archive Decision:** Is it junk? If so, rename to `Archived-...`. If not, PIVOT to elite status.
-3.  **Naming Strategy:** Apply `<Product>-<Function>-<Type>` formula.
-4.  **Replication Protocol:** Draft the "AI Agent Directives" block.
-5.  **File Generation:** Plan the content for all 11 required files (including `PROPOSED_README.md` and `badges.yml`).
-6.  **Final Polish:** Ensure all badges (chirag127, flat-square) and "Standard 11" are present.
-7.  **Strict Adherence:** Ensure `PROPOSED_README.md` strictly follows the `AGENTS.md` directives.
-
----
-
-## 7. DYNAMIC URL & BADGE PROTOCOL
-**Mandate:** All generated files MUST use the correct dynamic URLs based on the **New Repository Name**.
-
-**Rules:**
-1.  **Base URL:** `https://github.com/chirag127/<New-Repo-Name>`
-2.  **Badge URLs:** All badges (Shields.io) must point to this Base URL or its specific workflows (e.g., `/actions/workflows/ci.yml`).
-3.  **Consistency:** Never use the old/original repository name in links. Always use the new "Apex" name.
-4.  **AGENTS.md Customization:** The generated `AGENTS.md` **MUST** be customized for the specific repository's technology stack (e.g., if Rust, use Rust tools; if Python, use Python tools), while retaining the core Apex principles. Do not just copy the generic template; adapt it.
-
-**Current Repository Name:** `Console-Whisperer-AI-DevTools-Copilot-Browser-Extension`
+### 5. VERIFICATION COMMANDS
+*   **Lint & Format:** `npm run lint` (or `npx @biomejs/biome lint --apply`)
+*   **Unit Tests:** `npm test` (or `npx vitest`)
+*   **E2E Tests:** `npx playwright test`
+*   **Build:** `npm run build`
 
 </details>
-
-## 🛠️ Development Standards
-
-### Core Principles
-
-*   **SOLID:** Maintainable and scalable object-oriented design.
-*   **DRY (Don't Repeat Yourself):** Avoid redundancy in code and configuration.
-*   **YAGNI (You Ain't Gonna Need It):** Implement features only when necessary.
-*   **KISS (Keep It Simple, Stupid):** Favor simplicity in design and implementation.
-
-### Linting & Formatting
-
-This project uses **Biome** for linting and formatting to ensure code quality and consistency across the codebase. All code is automatically formatted upon commit via pre-commit hooks.
-
-To manually run the linter and formatter:
-
-bash
-# Lint and format all files
-npm run lint
-# or
-yarn lint
-
-
-### Testing
-
-Comprehensive testing is crucial for maintaining stability and reliability.
-
-*   **Unit & Integration Tests:** Handled by **Vitest**. Run with:
-    bash
-    npm run test
-    # or
-    yarn test
-    
-*   **End-to-End (E2E) Tests:** Performed using **Playwright**. Run with:
-    bash
-    npm run test:e2e
-    # or
-    yarn test:e2e
-    
-
-## 📜 License
-
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**. See the [LICENSE](LICENSE) file for details.
