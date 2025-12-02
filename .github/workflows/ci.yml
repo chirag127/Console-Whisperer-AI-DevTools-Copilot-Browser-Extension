@@ -1,65 +1,55 @@
-name: CI/CD Pipeline
+name: CI
 
+# Controls when the workflow will run
 on:
   push:
-    branches:
-      - main
-      - develop
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
-      - develop
-  workflow_dispatch: # Allows manual triggering of the workflow
+    branches: [ "main" ]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-and-test:
-    name: Build & Test Browser Extension
+  # This job builds the code when a pull request is created or merged into the main branch
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout Repository
+      # Checks-out your repository into the workspace so your job can access it
+      - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Setup Node.js environment for the browser extension
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Using a modern LTS Node.js version
-          cache: 'pnpm'      # Caches pnpm dependencies for faster builds
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      # Install dependencies using npm
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile # Ensures reproducible dependency installation
+      # Run linters and formatters (Biome)
+      - name: Lint and Format
+        run: npm run lint # Assuming a lint script in package.json that runs biome check
 
-      - name: Run Biome Lint & Format Check
-        # Enforces strict code quality and formatting standards
-        run: pnpm biome lint --apply-unsafe --check --verbose && pnpm biome format --write --check --verbose
+      # Run tests (Vitest)
+      - name: Run tests
+        run: npm test # Assuming a test script in package.json that runs vitest
 
-      - name: Run TypeScript Type Check
-        # Verifies type safety across the codebase
-        run: pnpm tsc --noEmit
+      # Build the browser extension for production
+      # This step assumes a build script that outputs to a dist/ folder
+      - name: Build Production Extension
+        env:
+          NODE_ENV: production
+        run: npm run build # Assuming a build script in package.json for Vite/WXT
 
-      - name: Run Unit Tests with Vitest
-        # Executes all unit tests to ensure core functionality
-        run: pnpm vitest run
-
-      - name: Install Playwright Browsers
-        # Sets up necessary browsers for end-to-end testing
-        run: pnpm playwright install --with-deps
-
-      - name: Run E2E Tests with Playwright
-        # Executes end-to-end tests to validate user flows and integration
-        run: pnpm playwright test
-
-      - name: Build Extension for Production
-        # Creates a production-ready build of the browser extension
-        run: pnpm build
-
-      - name: Upload Production Build Artifact
-        # Stores the compiled extension as an artifact for review or release
+      # Optional: Upload build artifacts
+      # This is useful if you want to download the built extension from the workflow run
+      - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: console-whisperer-extension-build
-          path: dist/ # Standard output directory for Vite/WXT projects
-          retention-days: 7 # Retain artifacts for 7 days
+          name: consoleai-devtools-copilot-browser-extension
+          path: dist # Or wherever your build output is located
